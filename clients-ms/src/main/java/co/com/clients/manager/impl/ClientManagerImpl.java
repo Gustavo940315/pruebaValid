@@ -80,8 +80,6 @@ public class ClientManagerImpl implements ClientManager {
 				
 				ModelClientEntity response= clientService.findById(request.getId());
 				if(response != null) {
-					response.setNombre(request.getNombre());
-					response.setApellido(request.getApellido());
 					response.setProcesado(true);
 					return new ResponseEntity<>(clientService.save(response), HttpStatus.OK);
 				}else {
