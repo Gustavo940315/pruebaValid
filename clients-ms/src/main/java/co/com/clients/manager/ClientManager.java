@@ -10,5 +10,5 @@ public interface ClientManager {
 	
 	public ResponseEntity<Object> save(ClientSaveRequestDTO request);
 	
-	public ResponseEntity<Object> findById(ClientSaveRequestDTO request);
+	public ResponseEntity<Object> updateById(ClientSaveRequestDTO request);
 }

@@ -34,7 +34,7 @@ public class ClientController {
 	
 	@PutMapping(PUT_MAPPING_UPDATE_CLIENT)
 	public ResponseEntity<Object> clientUpdateClient(@RequestBody ClientSaveRequestDTO request) {
-		return new ResponseEntity<>(clientManager.findById(request).getBody(), HttpStatus.OK);
+		return new ResponseEntity<>(clientManager.updateById(request).getBody(), HttpStatus.OK);
 	}
 	
 }

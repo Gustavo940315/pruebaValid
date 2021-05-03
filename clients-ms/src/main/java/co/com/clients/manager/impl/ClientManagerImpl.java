@@ -2,6 +2,8 @@ package co.com.clients.manager.impl;
 
 import static co.com.clients.router.RouterConsts.*;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import co.com.clients.manager.ClientManager;
 import co.com.clients.model.entity.ModelClientEntity;
 import co.com.clients.model.error.ErrorDTO;
 import co.com.clients.model.request.ClientSaveRequestDTO;
+import co.com.clients.model.response.ResponseDataDTO;
 import co.com.clients.service.ClientService;
 
 @Component
@@ -22,8 +25,19 @@ public class ClientManagerImpl implements ClientManager {
 	@Override
 	public ResponseEntity<Object> findAll() {
 		ErrorDTO errorResponse = new ErrorDTO();
+		ResponseDataDTO responseDTO = new ResponseDataDTO();
 		try {
-			return new ResponseEntity<>(clientService.findAll(), HttpStatus.OK);
+			List<ModelClientEntity> response= clientService.findAll();
+			if(response.isEmpty()) {
+				errorResponse.setMensaje(EXCEPTION_NOT_FOUND_CLIENT);
+				errorResponse.setStatus(NOT_FOUND_CLIENT_STATUS);
+				return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+			}else {
+				responseDTO.setBody(response);
+				responseDTO.setStatusCode(STATUS_CODE_OK);
+				responseDTO.setStatusCodeValue(STATUS_CODE_VALUE);
+				return new ResponseEntity<>(responseDTO,  HttpStatus.OK);
+			}
 		} catch (Exception e) {
 			errorResponse.setMensaje(EXCEPTION_FINDBYID_CLIENT);
 			errorResponse.setStatus(INTERNAL_SERVER_ERROR_STATUS);
@@ -47,12 +61,14 @@ public class ClientManagerImpl implements ClientManager {
 			}	
 			return new ResponseEntity<>(clientService.save(requestBD), HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<>(EXCEPTION_FINDBYID_CLIENT, HttpStatus.INTERNAL_SERVER_ERROR);
+			errorResponse.setMensaje(EXCEPTION_SAVE_CLIENT);
+			errorResponse.setStatus(INTERNAL_SERVER_ERROR_STATUS);
+			return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@Override
-	public ResponseEntity<Object> findById(ClientSaveRequestDTO request) {
+	public ResponseEntity<Object> updateById(ClientSaveRequestDTO request) {
 		ErrorDTO errorResponse = new ErrorDTO();
 		try {
 			if(request.getId() == 0 ) {
@@ -75,7 +91,9 @@ public class ClientManagerImpl implements ClientManager {
 				}
 			}	
 		} catch (Exception e) {
-			return new ResponseEntity<>(EXCEPTION_FINDBYID_CLIENT, HttpStatus.INTERNAL_SERVER_ERROR);
+			errorResponse.setMensaje(EXCEPTION_FINDBYID_CLIENT);
+			errorResponse.setStatus(INTERNAL_SERVER_ERROR_STATUS);
+			return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
