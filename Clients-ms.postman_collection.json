@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "4c6ca1f3-5b65-4571-ac42-d2fd6829ef0a",
+		"name": "Clients-ms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"nombre\":\"Andres\",\r\n    \"apellido\":\"Dimante\",\r\n    \"procesado\":false\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clients/v1/clients/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"v1",
+						"clients",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clients List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clients/v1/clients/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"v1",
+						"clients",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":7,\r\n    \"nombre\":\"Andrea\",\r\n    \"apellido\":\"Guzman\",\r\n    \"procesado\":false\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clients/v1/clients/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"v1",
+						"clients",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
