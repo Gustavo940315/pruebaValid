@@ -1,9 +1,11 @@
 package co.com.clients.router.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,17 +24,17 @@ public class ClientController {
 	
 	@PostMapping(POST_MAPPING_SAVE_CLIENT)
 	public ResponseEntity<Object> clientSave(@RequestBody ClientSaveRequestDTO request) {
-		return clientManager.save(request);
+		return new ResponseEntity<>(clientManager.save(request).getBody(), HttpStatus.OK);
 	}
 	
 	@GetMapping(GET_MAPPING_FINDALL_CLIENT)
 	public ResponseEntity<Object> clientFindAll() {
-		return clientManager.findAll();
+		return new ResponseEntity<>(clientManager.findAll().getBody(), HttpStatus.OK);
 	}
 	
-	@PostMapping(POST_MAPPING_UPDATE_CLIENT)
+	@PutMapping(PUT_MAPPING_UPDATE_CLIENT)
 	public ResponseEntity<Object> clientUpdateClient(@RequestBody ClientSaveRequestDTO request) {
-		return clientManager.findById(request);
+		return new ResponseEntity<>(clientManager.findById(request).getBody(), HttpStatus.OK);
 	}
 	
 }

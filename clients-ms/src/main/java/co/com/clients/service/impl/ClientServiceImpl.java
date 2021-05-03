@@ -32,8 +32,8 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public ResponseEntity<Object> save(ModelClientEntity request) {
-		try {
-			return new ResponseEntity<>(null, HttpStatus.OK);
+		try {	
+			return new ResponseEntity<>(clientRepository.save(request), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(EXCEPTION_SAVE_CLIENT, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

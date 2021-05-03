@@ -7,7 +7,7 @@ public class RouterConsts {
 	 */
 	public static final String INITIAL_PATH = "clients/v1";
 	public static final String POST_MAPPING_SAVE_CLIENT = "clients/save";
-	public static final String POST_MAPPING_UPDATE_CLIENT = "clients/update";
+	public static final String PUT_MAPPING_UPDATE_CLIENT = "clients/update";
 	public static final String GET_MAPPING_FINDALL_CLIENT = "clients/all";
 	
 	/*
@@ -20,5 +20,11 @@ public class RouterConsts {
 	public static final String EXCEPTION_BAD_RQ_CLIENT = "Los campos nombre o/y apellido vienen vacios o nulos";
 	public static final String EXCEPTION_BAD_RQ_CLIENT_ID = "El ID del cliente no puede ser 0";
 	public static final String EXCEPTION_FINDBYID_CLIENT_BD = "No se encontro el ID del cliente en la Base de Datos";
-
+	
+	/*
+	 * Status Error
+	 */
+	public static final String BAD_REQUEST_STATUS = "400";
+	public static final String INTERNAL_SERVER_ERROR_STATUS = "500";
+	
 }
