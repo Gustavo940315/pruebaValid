@@ -1,0 +1,43 @@
+<div class="img-background ">
+    <div class="row">
+        <div class="col-12">
+            <mat-card class="card-style">
+               <mat-card-header class="d-flex justify-content-center mt-3 pb-2">
+                   <mat-card-title class="h1 color-title">REGISTRO</mat-card-title>
+               </mat-card-header>
+               <mat-card-content class="ml-3 mr-3 ">
+                   <form 
+                        class="justify-content-center"
+                        #form = 'ngForm'
+                    >
+                       <mat-form-field class="w-100  pb-3">
+                           <mat-label>Nombre</mat-label>
+                           <input 
+                                type="text"
+                                matInput
+                                name="name"
+                                [(ngModel)] = 'usuario.nombre'
+                            >
+                       </mat-form-field>
+                       <mat-form-field class="w-100  pb-4">
+                            <mat-label>Apellido</mat-label>
+                            <input 
+                                type="text"
+                                matInput
+                                name="lastname"
+                                [(ngModel)] = 'usuario.apellido'
+                                pattern="[0-9._-]"
+                            >
+                        </mat-form-field>
+                        <button
+                            class="w-100 btn-color " 
+                            mat-button (click)="onSubmint()"
+                        >   REGISTRAR
+                        </button>
+                   </form>
+               </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    
+</div>

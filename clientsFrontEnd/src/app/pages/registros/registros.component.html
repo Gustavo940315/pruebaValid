@@ -1,0 +1,47 @@
+<div class="container card mt-4">
+   
+    <div class="row">
+      <div class="col-12">
+          <h1 class="color-title mt-3">CONSULTA DE REGISTROS</h1>
+      </div>
+    </div>
+  <div class="row">
+      <div class="col-12">
+        <table class="table table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>No</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Estado</th>
+              <th>Seleccion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of listaUsuarios; let i = index">
+              <th>{{usuario.id}}</th>
+              <th>{{usuario.nombre}}</th>
+              <th>{{usuario.apellido}}</th>
+              <th>{{estado}}</th>
+              <th><mat-checkbox
+                [checked]="usuario.estado"
+                (change)="select(usuario.id)"
+              >
+              </mat-checkbox></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row container">
+        <div class="col-6 mb-4">
+          <button 
+            mat-button class="w-80 btn-color"
+            (click)=" actualizarUsauario()"
+          >
+            PROCESAR
+          </button>
+        </div>
+      </div>
+  </div>
+   
+</div>

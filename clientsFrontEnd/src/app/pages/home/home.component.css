@@ -1,0 +1,19 @@
+.img-background {
+    background-image: url('../../../assets/img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+    justify-content: center;
+    
+}
+
+.card-style {
+    width: 20rem;
+    height: 20rem;
+    margin-top: 50%;
+    position: relative;
+    border-radius: 1rem;
+}
