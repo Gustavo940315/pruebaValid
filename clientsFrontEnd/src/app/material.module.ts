@@ -3,8 +3,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {CdkTableModule} from '@angular/cdk/table';
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -17,7 +18,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatCheckboxModule
   ],
   exports: [
     MatInputModule,
@@ -25,7 +27,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }
