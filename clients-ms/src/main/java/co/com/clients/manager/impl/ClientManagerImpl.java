@@ -54,6 +54,7 @@ public class ClientManagerImpl implements ClientManager {
 				requestBD.setNombre(request.getNombre());
 				requestBD.setApellido(request.getApellido());
 				requestBD.setProcesado(false);
+				requestBD.setEstado(RESGISTRADO);
 			}else {
 				errorResponse.setMensaje(EXCEPTION_BAD_RQ_CLIENT);
 				errorResponse.setStatus(BAD_REQUEST_STATUS);
@@ -81,6 +82,7 @@ public class ClientManagerImpl implements ClientManager {
 				ModelClientEntity response= clientService.findById(request.getId());
 				if(response != null) {
 					response.setProcesado(true);
+					response.setEstado(PROCESADO);
 					return new ResponseEntity<>(clientService.save(response), HttpStatus.OK);
 				}else {
 					errorResponse.setMensaje(EXCEPTION_FINDBYID_CLIENT_BD);

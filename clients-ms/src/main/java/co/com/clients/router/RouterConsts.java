@@ -33,4 +33,10 @@ public class RouterConsts {
 	public static final String STATUS_CODE_OK = "OK";
 	public static final String STATUS_CODE_VALUE = "200";
 	
+	/*
+	 * Estados
+	 */
+	public static final String RESGISTRADO = "Registrado";
+	public static final String PROCESADO = "Procesado";
+	
 }

@@ -15,4 +15,5 @@ public class ClientSaveRequestDTO {
 	private String nombre;
 	private String apellido;
 	private boolean procesado;
+	private String estado;
 }
